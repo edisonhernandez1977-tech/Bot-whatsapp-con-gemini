@@ -5,7 +5,7 @@ from google.genai import types
 
 app = FastAPI()
 
-# Configuración con v1beta para habilitar system instruction y Google Search
+# Configuracion con v1beta para habilitar system instruction y Google Search
 client = genai.Client(
     api_key=os.environ.get("GEMINI_API_KEY"),
     http_options={'api_version': 'v1beta'}
@@ -40,7 +40,4 @@ async def webhook(request: Request):
             ),
         )
         texto_respuesta = response.text
-    except Exception as e:
-        texto_respuesta = f"Error procesando la consulta: {str(e)}"
-
-    return {"replies": [{"message": texto_respuesta}]}
+    except Exception
