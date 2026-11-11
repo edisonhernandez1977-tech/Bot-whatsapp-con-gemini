@@ -5,8 +5,11 @@ from google.genai import types
 
 app = FastAPI()
 
-# Lee la clave de API configurada en Render
-client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+# Configuración con v1beta para habilitar system instruction y Google Search
+client = genai.Client(
+    api_key=os.environ.get("GEMINI_API_KEY"),
+    http_options={'api_version': 'v1beta'}
+)
 
 PROMPT_SISTEMA = (
     "Eres el Ingeniero Mateo Hernández, asistente profesional y técnico para WhatsApp. "
